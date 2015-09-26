@@ -19,4 +19,10 @@ for (i in years ) {
     #store result
     result <- rbind(result,buffer)
   }
+  #defining the png output
+  png(filename = "./Plot1.png", width = 480, height = 480)
+  #generating the barplot
+  barplot(result$Emissions, names.arg = result$Year, beside = TRUE, col= c("red", "green", "black", "yellow"), legend = levels(unique(result$type)), ylim = c(0,7), xlab = "years", ylab = "Emission", main = "Fine Particular Matter Air Pollutant in USA by Years")
+  #mandatory housekeeping 
+  dev.off()
 }
